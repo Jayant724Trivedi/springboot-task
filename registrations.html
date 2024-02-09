@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Spring Boot Example</title>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(registrations)}">
+        <h2>Registration List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="registration : ${registrations}">
+                <td th:text="${registration.Id}"><a href="/registration/${registration.Id}">Id</a></td>
+                <td th:text="${registration.Full Name}">Full Name</td>
+                <td th:text="${registration.Gender}">Gender</td>
+                <td><a th:href="${ '/registration/' + product.id}">View</a></td>
+                <td><a th:href="${'/registration/edit/' + product.id}">Edit</a></td>
+                <td><a th:href="${'/registration/delete/' + product.id}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
